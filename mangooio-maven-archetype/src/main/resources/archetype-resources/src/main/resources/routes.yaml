@@ -20,8 +20,8 @@ routes:
   mapping: ApplicationController.auth
   
 - method: GET
-  url: /json
-  mapping: ApplicationController.json
+  url: /forms
+  mapping: ApplicationController.forms
   
 - method: POST
   url: /authenticate

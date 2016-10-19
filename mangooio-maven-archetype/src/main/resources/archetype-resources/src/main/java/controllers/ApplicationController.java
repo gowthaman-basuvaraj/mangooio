@@ -12,7 +12,7 @@ public class ApplicationController {
         return Response.withOk();
     }
     
-    public Response json() {
+    public Response forms() {
         return Response.withOk();
     }
 }

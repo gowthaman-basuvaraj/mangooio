@@ -34,12 +34,15 @@
           <a href="#" class="dropdown-toggle" data-toggle="dropdown">Demos <span class="caret"></span></a>
           <ul class="dropdown-menu" role="menu">
             <li><a href="/auth">Authentication</a></li>
-            <li><a href="/json">Working with JSON</a></li>
-            <li><a href="/sse">Server Sent Event</a></li>
+            <li><a href="/forms">Forms</a></li>
           </ul>
         </li>
       </ul>
-        <#if !subject.isAuthenticated()>
+        <#if subject?? && subject.isAuthenticated()>
+        	<form method="post" action="/authenticate" class="navbar-form navbar-right">
+        		<a href="/logout?authenticity=<@authenticity/>" class="btn btn-success" id="logout">Logout</a></li>
+        	</form>
+        <#else>
           <form method="post" action="/authenticate" class="navbar-form navbar-right">
             <div class="form-group">
               <input type="text" placeholder="Username" name="username" class="form-control">
@@ -50,10 +53,6 @@
             <@authenticityForm/>
             <button type="submit" class="btn btn-success">Sign in</button>
           </form>
-        <#else>
-        <form method="post" action="/authenticate" class="navbar-form navbar-right">
-        <a href="/logout?authenticity=<@authenticity/>" class="btn btn-success" id="logout">Logout</a></li>
-        </form>
         </#if>
         </div>
       </div>

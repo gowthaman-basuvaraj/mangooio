@@ -9,11 +9,13 @@
 
 default:
     application:
-        name       : ${application-name} 
-        secret     : ${application-secret}
+        name       : foo
+        secret     : myvoiceismysecretmyvoiceismysecret
         language   : en
-        host       : localhost
-        port       : 8080
+    connector:
+        http:
+            host      : 127.0.0.1
+            port      : 8080   
         minify:
             js        : false
             css       : false
@@ -39,11 +41,17 @@ default:
         ssl        : false
         
 test:
-    application:
-        port       : 10808
+    connector:
+        http:
+            host      : 127.0.0.1
+            port      : 10808 
     smtp:
         port       : 3055
         
 dev:
+    connector:
+        http:
+            host      : 127.0.0.1
+            port      : 10808 
     smtp:
         port       : 3025
